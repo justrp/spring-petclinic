@@ -66,6 +66,8 @@ jobs:
           push: true
           tags: ghcr.io/${{ env.IMAGE_NAME }}:${{ steps.semantic.outputs.release-version }}
           labels: ${{ steps.meta.outputs.labels }}
+          build-args:
+            - VERSION: ${{ steps.semantic.outputs.release-version }}
 
       - name: Publish tag
         uses: actions-ecosystem/action-push-tag@v1
