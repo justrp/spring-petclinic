@@ -52,7 +52,7 @@ jobs:
         with:
           context: .
           push: false
-          tags: ghcr.io/${{ env.IMAGE_NAME }}:test
+          tags: ghcr.io/${{ env.IMAGE_NAME }}:newtest
       - name: Run Trivy vulnerability scanner
         uses: aquasecurity/trivy-action@master
         with:
