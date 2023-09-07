@@ -47,7 +47,7 @@ public interface VetRepository extends Repository<Vet, Integer> {
     Collection<Vet> findAll() throws DataAccessException;
 
     /**
-     * Retrieve all <code>Vet</code>s from data store in Pages
+     * Retrieve all <code>Vet</code>s from data store in Pages.
      *
      * @param pageable
      * @return
