@@ -67,10 +67,17 @@
       <scope>test</scope>
     </dependency>
 
+    <dependency>
+      <groupId>com.h2database<org.yaml>
+      <artifactId>snakeyaml</artifactId>
+      <versionRange>[2,)</versionRange>
+      <scope>runtime</scope>
+    </dependency>
     <!-- Databases - Uses H2 by default -->
     <dependency>
       <groupId>com.h2database</groupId>
       <artifactId>h2</artifactId>
+      <versionRange>[2.2.220,)</versionRange>
       <scope>runtime</scope>
     </dependency>
     <dependency>
