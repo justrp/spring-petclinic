@@ -42,30 +42,30 @@ import org.testcontainers.junit.jupiter.Testcontainers;
 @DisabledInNativeImage
 class MySqlIntegrationTests {
 
-	@ServiceConnection
-	@Container
-	static MySQLContainer<?> container = new MySQLContainer<>("mysql:5.7");
+    @ServiceConnection
+    @Container
+    static MySQLContainer<?> container = new MySQLContainer<>("mysql:5.7");
 
-	@LocalServerPort
-	int port;
+    @LocalServerPort
+    int port;
 
-	@Autowired
-	private VetRepository vets;
+    @Autowired
+    private VetRepository vets;
 
-	@Autowired
-	private RestTemplateBuilder builder;
+    @Autowired
+    private RestTemplateBuilder builder;
 
-	@Test
-	void testFindAll() throws Exception {
-		vets.findAll();
-		vets.findAll(); // served from cache
-	}
+    @Test
+    void testFindAll() throws Exception {
+        vets.findAll();
+        vets.findAll(); // served from cache
+    }
 
-	@Test
-	void testOwnerDetails() {
-		RestTemplate template = builder.rootUri("http://localhost:" + port).build();
-		ResponseEntity<String> result = template.exchange(RequestEntity.get("/owners/1").build(), String.class);
-		assertThat(result.getStatusCode()).isEqualTo(HttpStatus.OK);
-	}
+    @Test
+    void testOwnerDetails() {
+        RestTemplate template = builder.rootUri("http://localhost:" + port).build();
+        ResponseEntity<String> result = template.exchange(RequestEntity.get("/owners/1").build(), String.class);
+        assertThat(result.getStatusCode()).isEqualTo(HttpStatus.OK);
+    }
 
 }

@@ -32,15 +32,15 @@ import org.testcontainers.containers.MySQLContainer;
 @Configuration
 public class MysqlTestApplication {
 
-	@ServiceConnection
-	@Profile("mysql")
-	@Bean
-	static MySQLContainer<?> container() {
-		return new MySQLContainer<>("mysql:5.7");
-	}
+    @ServiceConnection
+    @Profile("mysql")
+    @Bean
+    static MySQLContainer<?> container() {
+        return new MySQLContainer<>("mysql:5.7");
+    }
 
-	public static void main(String[] args) {
-		SpringApplication.run(PetClinicApplication.class, "--spring.profiles.active=mysql");
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(PetClinicApplication.class, "--spring.profiles.active=mysql");
+    }
 
 }
